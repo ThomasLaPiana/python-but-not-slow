@@ -1,0 +1,14 @@
+# This is a configuration file for the Drill benchmarking tool
+
+concurrency: 2
+base: 'http://localhost:8000'
+iterations: 500
+
+plan:
+  - name: Python Fibonnaci
+    request:
+      url: /python/10_000
+
+  - name: Rust Fibonacci 
+    request:
+      url: /rust/10_000

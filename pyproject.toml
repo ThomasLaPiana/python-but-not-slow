@@ -3,16 +3,23 @@ requires = ["maturin>=1.7,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "python-but-not-slow"
+name = "pbns"
 requires-python = "==3.12.7"
 classifiers = [
     "Programming Language :: Rust",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dynamic = ["version"]
+dependencies = ["litestar[standard]==2.12.1"]
+
 
 [tool.maturin]
+# The name of the directory in which the module is contained
+python-source = "python"
+# This allows you to import your rust module as a submodule.
+# i.e. `pbns._pbns`
+module-name = "pbns._pbns"
+bindings = "pyo3"
 features = ["pyo3/extension-module"]
 
 [tool.setuptools.packages.find]
